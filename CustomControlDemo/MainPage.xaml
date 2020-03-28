@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:CustomControlDemo.Controls" xmlns:vm="clr-namespace:CustomControlDemo.ViewModel" mc:Ignorable="d" x:Class="CustomControlDemo.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout Padding="30">
+        <!-- Place new controls here -->
+        <controls:ErrorValidationEntry IsObligatory="True" Placeholder="Nombre" IsValid="Valid"  />
+        <controls:ErrorValidationEntry IsObligatory="False" Placeholder="Apellido" IsValid="Valid" />
+        <controls:ErrorValidationEntry IsObligatory="True" Placeholder="Mail" Text="{Binding Email}" IsValid="{Binding IsValidEmail}" UnfocusCommand="{Binding UnfocusCommand}" ErrorMessage="No es un mail válido"/>
+   </StackLayout>
+</ContentPage>

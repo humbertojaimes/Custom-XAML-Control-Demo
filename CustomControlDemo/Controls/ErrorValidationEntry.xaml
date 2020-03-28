@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns:behaviors="clr-namespace:CustomControlDemo.Behaviors;assembly=CustomControlDemo" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomControlDemo.Controls.ErrorValidationEntry">
+    <StackLayout.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="EncabezadoCampo">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+        </ResourceDictionary>
+    </StackLayout.Resources>
+
+    <StackLayout Orientation="Horizontal">
+        <Label Style="{StaticResource EncabezadoCampo}" x:Name="lbTitle" />
+        <Label TextColor="Red" x:Name="lbIndicator" Text="*" />
+    </StackLayout>
+    <Entry x:Name="entry" Text="{Binding Text}">
+        <VisualElement.Behaviors>
+            <behaviors:ViewUnfocusBehavior />
+        </VisualElement.Behaviors>
+    </Entry>
+    <Label TextColor="Red" x:Name="lbError" Text="Elvalod introducido no es válido" IsVisible="false" />
+</StackLayout>
